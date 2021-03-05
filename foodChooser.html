@@ -1,0 +1,108 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
+    <title>FoodChooser</title>
+    <style>
+      h1
+      {
+        font-size: 40px;
+        font-family: 'Kalam', cursive;
+      }
+      p
+      {
+        font-size: 30px;
+        font-family: 'Neucha', cursive;
+      }
+      img
+      {
+        width: 220px;
+        height: 200px;
+        display: inline;
+      }
+      body
+      {
+        background-color: #b3d9ff
+      }
+      #sButton{
+        width: 100px;
+        height: 35px;
+        background-color: #0099ff;
+        color: white;
+        font-size: 25px;
+        font-family: 'Neucha', cursive;
+        }
+
+      #sButton:hover
+      {
+        background-color: white;
+        color:  #0099ff;
+      }
+      input
+      {
+        font-size: 25px;
+        width: 160px;
+        font-family: 'Neucha', cursive;
+      }
+      #message
+      {
+        border: 5px dashed black;
+        padding: 10px;
+        font-size: 40px;
+      }
+    </style>
+    <script>
+         function ageCheck()
+         {
+           var userAge = document.getElementById("byear").value;
+           userAge = parseInt(userAge);
+           var realAge = 2021 - userAge;
+
+           if(realAge > 10)
+           {
+             document.getElementById("pic1").innerHTML = "<img src = pasta.jpeg onclick=printNo()>"
+             document.getElementById("pic2").innerHTML = "<img src = cake.jpeg onclick=printNo()>"
+             document.getElementById("pic3").innerHTML = "<img src = fruit.jpeg onclick=printYes()>"
+           }
+
+           if(realAge < 10)
+           {
+             document.getElementById("pic1").innerHTML = "<img src = maccheese.jpeg onclick=printNo()>"
+             document.getElementById("pic2").innerHTML = "<img src = salad.jpeg onclick=printYes()>"
+             document.getElementById("pic3").innerHTML = "<img src = pizza.jpg onclick=printNo()>"
+           }
+
+           if(realAge < 0)
+           {
+             document.getElementById("message").innerHTML = "You are " + realAge + " years old, Error"
+           }
+
+           if(realAge > 200)
+           {
+             document.getElementById("message").innerHTML = "You are " + realAge + " years old, Error"
+           }
+         }
+         function printYes()
+         {
+            document.getElementById("message").innerHTML = "Yes, this is a good choice"
+         }
+         function printNo()
+         {
+            document.getElementById("message").innerHTML = "No, this is a bad choice"
+         }
+      </script>
+  </head>
+  <body>
+    <center>
+    <h1>Welcome to the Healthy Food Chooser</h1>
+       <p>This program helps you pick a healthy food choice<p><br>
+       <input type = "text" placeholder="Type Birth Year" id = "byear">
+       <input type = "button" value = "Submit" onclick = "ageCheck()" id = "sButton">
+       <p id = "pic1"></p>
+       <p id = "pic2"></p>
+       <p id = "pic3"></p>
+       <p id = "message"></p>
+  </body>
+</html>
